@@ -8,16 +8,16 @@ ballerina build guide/restful_service
 ballerina run restful_service.balx 
 
 
-## <a name="What-we-ll-build"></a> What we'll build
+## <a name="What-we-ll-build"></a> Use Case 
 We’ll build a Hello service that will accept HTTP GET requests at:
 
 
 ![RESTful Service](images/restful_service.png "RESTful Service")
 
 
-## <a name="what-we-ll-need"></a> Before beginning:  What we'll need
+## <a name="what-we-ll-need"></a> Prerequisites
 
-## <a name="building-the-scenario"></a> Building the Scenario
+## <a name="developing-the-scenario"></a> Developing the Scenario
 
 
 Sample code

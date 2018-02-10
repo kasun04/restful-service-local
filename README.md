@@ -11,10 +11,10 @@ The following figure illustrates all required functionalities of the OrderMgt RE
 ![RESTful Service](images/restful_service.png "RESTful Service")
 
 
-- Create Order : To place a new order you can use the HTTP POST message with the content of the order, which is sent to the URL (http://xyz.retail.com/order).The response from the service contains an HTTP 201 Created message with the location header pointing to the newly created resource (http://xyz.retail.com/order/123456). 
-- Retrieve Order : Now you can retrieve the order details from that URL by sending an HTTP GET request to the appropriate URL which includes the order ID. (e.g. http://xyz.retail.com/order/<orderId>)
-- Update Order : You can update an existing order by sending a HTTP PUT request with the content for the updated order. 
-- Delete Order : An existing order can be deleted by sending a HTTP DELETE request to the specific URL (e.g. http://xyz.retail.com/order/<orderId>). 
+- **Create Order** : To place a new order you can use the HTTP POST message with the content of the order, which is sent to the URL (http://xyz.retail.com/order).The response from the service contains an HTTP 201 Created message with the location header pointing to the newly created resource (http://xyz.retail.com/order/123456). 
+- **Retrieve Order** : Now you can retrieve the order details from that URL by sending an HTTP GET request to the appropriate URL which includes the order ID. (e.g. http://xyz.retail.com/order/<orderId>)
+- **Update Order** : You can update an existing order by sending a HTTP PUT request with the content for the updated order. 
+- **Delete Order** : An existing order can be deleted by sending a HTTP DELETE request to the specific URL (e.g. http://xyz.retail.com/order/<orderId>). 
 
 
 ## <a name="what-we-ll-need"></a> Prerequisites

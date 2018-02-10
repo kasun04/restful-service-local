@@ -234,20 +234,35 @@ Sample orders are added.
 ### <a name="deploying-on-k8s"></a> Deploying on Kubernetes
 (Work in progress) 
 
-## <a name="testing-the-scenario"></a> Testing 
+## <a name="testing-the-scenario"></a> Testing the Scenario 
 (Work in progress) 
 
-### <a name="invoking-the-service"></a> Testing the Scenario
+### <a name="invoking-the-service"></a> Invoking the Scenario
 
+You can test the functionality of the OrderMgt RESTFul service by sending HTTP request for each order management operation. For example, we have used the curl commonds to test each operation of OrderMgtService as follows. 
 
+**Create Order** 
+```
 curl -X POST -d '{ "Order": { "ID": "100500", "Name": "XYZ", "Description": "Sample order."}}'  "http://localhost:9090/ordermgt/order" -H "Content-Type:application/json"
 
+{"status":"Order Created.","orderId":"100500"}[
+ 
+```
+
+**Retrieve Order** 
+```
 curl "http://localhost:9090/ordermgt/order/100500" 
 
+```
+**Update Order** 
+```
 curl -X PUT -d '{ "Order": {"Name": "XYZ", "Description": "Updated order."}}'  "http://localhost:9090/ordermgt/order/100500" -H "Content-Type:application/json"
+```
 
+**Cancel Order** 
+```
 curl -X DELETE "http://localhost:9090/ordermgt/order/100500"
-
+```
 
 ### <a name="invoking-the-service"></a> Writing Unit Tests 
 

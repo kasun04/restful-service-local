@@ -248,7 +248,8 @@ You can test the functionality of the OrderMgt RESTFul service by sending HTTP r
 
 **Create Order** 
 ```
-curl -v -X POST -d '{ "Order": { "ID": "100500", "Name": "XYZ", "Description": "Sample order."}}'  "http://localhost:9090/ordermgt/order" -H "Content-Type:application/json"
+curl -v -X POST -d '{ "Order": { "ID": "100500", "Name": "XYZ", "Description": "Sample order."}}' \
+ "http://localhost:9090/ordermgt/order" -H "Content-Type:application/json"
 
 Output :  
 < HTTP/1.1 201 Created
@@ -273,7 +274,8 @@ Output :
 ```
 **Update Order** 
 ```
-curl -X PUT -d '{ "Order": {"Name": "XYZ", "Description": "Updated order."}}'  "http://localhost:9090/ordermgt/order/100500" -H "Content-Type:application/json"
+curl -X PUT -d '{ "Order": {"Name": "XYZ", "Description": "Updated order."}}' \
+ "http://localhost:9090/ordermgt/order/100500" -H "Content-Type:application/json"
 
 Output: 
 {"Order":{"ID":"100500","Name":"XYZ","Description":"Updated order."}}[

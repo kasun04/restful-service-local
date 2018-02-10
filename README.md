@@ -1,21 +1,37 @@
 # RESTful Service  
 
-Building a RESTful web service using Ballerina. 
+In this guide you will learn about building a comprehensive RESTful Web Service using Ballerina. 
 
 
-
-ballerina build guide/restful_service
-ballerina run restful_service.balx 
-
-
-## <a name="What-we-ll-build"></a> Understanding the Scenario  
-We’ll build a Hello service that will accept HTTP GET requests at:
-
+## <a name="understanding-the-scenario"></a> Understanding the Scenario  
+To understanding how you can build a RESTful web service using Ballerina, let’s consider the order management scenario of an online retail application. 
+We can model the order management scenario as a RESTful web service; 'OrderMgtService',  which accepts different HTTP request for order management tasks such as order creation, retrieval, updating and deletion.
+The following figure illustrates all required functionalities of the OrderMgt RESTful web service that we need to build. 
 
 ![RESTful Service](images/restful_service.png "RESTful Service")
 
 
+- Create Order : To place a new order you can use the HTTP POST message with the content of the order, which is sent to the URL (http://xyz.retail.com/order).The response from the service contains an HTTP 201 Created message with the location header pointing to the newly created resource (http://xyz.retail.com/order/123456). 
+- Retrieve Order : Now you can retrieve the order details from that URL by sending an HTTP GET request to the appropriate URL which includes the order ID. (e.g. http://xyz.retail.com/order/<orderId>)
+- Update Order : You can update an existing order by sending a HTTP PUT request with the content for the updated order. 
+- Delete Order : An existing order can be deleted by sending a HTTP DELETE request to the specific URL (e.g. http://xyz.retail.com/order/<orderId>). 
+
+
 ## <a name="what-we-ll-need"></a> Prerequisites
+
+Mandatory 
+- About 30 minutes
+- JDK 1.8 or later
+- Ballerina Distribution (Install Instructions:  https://ballerinalang.org/docs/quick-tour/quick-tour/#install-ballerina)
+- A Text Editor or an IDE
+
+Optional 
+- Docker (Follow instructions in https://docs.docker.com/engine/installation/)
+- Ballerina Composer (optional). Refer instructions in https://ballerinalang.org/docs/quick-tour/quick-tour/#run-the-composer
+- Intellij IDEA (optional). https://github.com/ballerinalang/plugin-intellij/tree/master/getting-started
+- Testerina (Refer: https://github.com/ballerinalang/testerina)
+- Container-support (Refer: https://github.com/ballerinalang/container-support)
+- Docerina (Refer: https://github.com/ballerinalang/docerina)
 
 ## <a name="developing-the-scenario"></a> Developing the Scenario
 
@@ -127,6 +143,20 @@ function populateSampleOrders () (map orders) {
 
 ## <a name="deploying-the-scenario"></a> Deploying the scenario
 ### <a name="deploying-on-locally"></a> Deploying Locally
+
+
+Build Ballerina executable archive (.balx) using: 
+
+```
+$ballerina build guide/restful_service
+```
+
+Run the scenario with: 
+
+```
+ballerina run restful_service.balx 
+```
+
 ### <a name="deploying-on-docker"></a> Deploying on Docker
 ### <a name="deploying-on-k8s"></a> Deploying on Kubernetes
 

@@ -8,7 +8,7 @@ ballerina build guide/restful_service
 ballerina run restful_service.balx 
 
 
-## <a name="What-we-ll-build"></a> Use Case 
+## <a name="What-we-ll-build"></a> Understanding the Scenario  
 We’ll build a Hello service that will accept HTTP GET requests at:
 
 

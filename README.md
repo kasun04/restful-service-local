@@ -10,6 +10,8 @@ ballerina run restful_service.balx
 
 ![RESTful Service](images/restful_service.png "RESTful Service")
 
+
+
 curl -X POST -d '{ "Order": { "ID": "100500", "Name": "XYZ", "Description": "Sample order."}}'  "http://localhost:9090/ordermgt/order" -H "Content-Type:application/json"
 
 curl "http://localhost:9090/ordermgt/order/100500" 

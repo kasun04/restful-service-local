@@ -229,13 +229,13 @@ Sample orders are added.
 
 
 ### <a name="deploying-on-docker"></a> Deploying on Docker
-<Work in progress> 
+(Work in progress) 
 
 ### <a name="deploying-on-k8s"></a> Deploying on Kubernetes
-<Work in progress>
+(Work in progress) 
 
 ## <a name="testing-the-scenario"></a> Testing 
-<Work in progress>
+(Work in progress) 
 
 ### <a name="invoking-the-service"></a> Testing the Scenario
 

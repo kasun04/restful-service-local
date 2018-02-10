@@ -34,10 +34,18 @@ Optional Requirements
 
 We can model the OrderMgt RESTful service using Ballerina services and resources constructs. 
 
-1. You can started with a services 'OrderMgtService' which is the RESTful service that serves the order management request. OrderMgtService can have multiple resources and each resource is dedicated for a specific order management functionality.
-2. In the following Ballerina code segment you can find the implementation of the service and resource skeletons of 'OrderMgtService'. 
+1. We can get started with a Ballerina service; 'OrderMgtService' which is the RESTful service that serves the order management request. OrderMgtService can have multiple resources and each resource is dedicated for a specific order management functionality.
+2. You can decide the package structure for the service and then create the service in the corresponding directory structure. For example, suppose that you are going to use the package name 'guide.restful_service', then you need to create the following directory structure and create the service file using the text editor or IDE that you use. 
+
+```
+restful-service
+   └── guide
+       └── restful_service
+           └── OrderMgtService.bal  
+```
+2. You can add the content to your service as shown below. In that code segment you can find the implementation of the service and resource skeletons of 'OrderMgtService'. 
 For each order management operation, there is a dedicated resource and inside each resource we can implement the order management operation logic. 
-The service is annotated with the base parth for service and each resource has path and HTTP methods based validations, so that we can selectively route the messages through theses resources. 
+The service is annotated with the base path for service and each resource has path and HTTP methods based validations, so that we can selectively route the messages through theses resources. 
 
 ##### OrderMgtService.bal
 ```ballerina
@@ -174,7 +182,7 @@ service<http> OrderMgtService {
 
 }
 
-
+// 
 function populateSampleOrders () (map orders) {
     orders = {};
     json order_1 = {"Order":{"ID":"123000", "Name":"ABC_1", "Description":"Sample order."}};
@@ -190,31 +198,47 @@ function populateSampleOrders () (map orders) {
 
 ```
 
-
+4. With that we've completed the development of OrderMgtService. 
 
 ## <a name="deploying-the-scenario"></a> Deploying the scenario
+
+Once you are done with the development, you can deploy the service using any of the methods that we listed below. 
+
 ### <a name="deploying-on-locally"></a> Deploying Locally
+You can deploy the RESTful service that you developed above, in your local machine. You need to have the Ballerina instalation in you local machine and simply point to the <ballerina>/bin/ballerina binary to execute all the following steps.  
 
-
-Build Ballerina executable archive (.balx) using: 
+1. As the first step you can build a Ballerina executable archive (.balx) of the service that we developed above, using the following command. It points to the directory structure of the service that we developed above and it will create an executable binary out of that. 
 
 ```
 $ballerina build guide/restful_service
 ```
 
-Run the scenario with: 
+2. Once the restful_service.balx is created, you can run it with the following command. 
 
 ```
 ballerina run restful_service.balx 
 ```
 
-### <a name="deploying-on-docker"></a> Deploying on Docker
-### <a name="deploying-on-k8s"></a> Deploying on Kubernetes
+3. The successful execution of the service should show us the following output. 
+```
+$ballerina run restful_service.balx 
+ballerina: deploying service(s) in 'restful_service.balx'
+Sample orders are added.
+ 
+```
 
+
+### <a name="deploying-on-docker"></a> Deploying on Docker
+<Work in progress> 
+
+### <a name="deploying-on-k8s"></a> Deploying on Kubernetes
+<Work in progress>
 
 ## <a name="testing-the-scenario"></a> Testing 
+<Work in progress>
 
 ### <a name="invoking-the-service"></a> Testing the Scenario
+
 
 curl -X POST -d '{ "Order": { "ID": "100500", "Name": "XYZ", "Description": "Sample order."}}'  "http://localhost:9090/ordermgt/order" -H "Content-Type:application/json"
 
@@ -225,8 +249,7 @@ curl -X PUT -d '{ "Order": {"Name": "XYZ", "Description": "Updated order."}}'  "
 curl -X DELETE "http://localhost:9090/ordermgt/order/100500"
 
 
-
 ### <a name="invoking-the-service"></a> Writing Unit Tests 
 
-test 
+<Work in progress> 
 

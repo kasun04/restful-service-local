@@ -5,6 +5,7 @@ import ballerina.net.http;
 @http:configuration {basePath:"/ordermgt"}
 service<http> OrderMgtService {
 
+    // Add some sample orders to the orderMap during the startup.
     map ordersMap = populateSampleOrders();
 
     @http:resourceConfig {
@@ -84,6 +85,7 @@ service<http> OrderMgtService {
 }
 
 
+// Add some sample orders for testing purposes.
 function populateSampleOrders () (map orders) {
     orders = {};
     json order_1 = {"Order":{"ID":"123000", "Name":"ABC_1", "Description":"Sample order."}};

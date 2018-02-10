@@ -8,7 +8,7 @@ ballerina build guide/restful_service
 ballerina run restful_service.balx 
 
 
-<img src="images/restful_service.png" title="Order Management Service">
+<img src="images/restful_service.png" width="660" height="900" title="Order Management Service">
 
 curl -X POST -d '{ "Order": { "ID": "100500", "Name": "XYZ", "Description": "Sample order."}}'  "http://localhost:9090/ordermgt/order" -H "Content-Type:application/json"
 

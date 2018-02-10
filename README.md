@@ -1,4 +1,4 @@
-# RESTful Service with Ballerina 
+# RESTful Service  
 
 Building a RESTful web service using Ballerina. 
 
@@ -131,8 +131,9 @@ function populateSampleOrders () (map orders) {
 ### <a name="deploying-on-k8s"></a> Deploying on Kubernetes
 
 
-## <a name="running-the-scenario"></a> Running the Scenario
+## <a name="testing-the-scenario"></a> Testing 
 
+### <a name="invoking-the-service"></a> Testing the Scenario
 
 curl -X POST -d '{ "Order": { "ID": "100500", "Name": "XYZ", "Description": "Sample order."}}'  "http://localhost:9090/ordermgt/order" -H "Content-Type:application/json"
 
@@ -143,9 +144,8 @@ curl -X PUT -d '{ "Order": {"Name": "XYZ", "Description": "Updated order."}}'  "
 curl -X DELETE "http://localhost:9090/ordermgt/order/100500"
 
 
-## <a name="testing-the-scenario"></a> Testing the scenario
-
-### <a name="invoking-the-service"></a> Invoking the Service
 
 ### <a name="invoking-the-service"></a> Writing Unit Tests 
+
+test 
 

@@ -36,6 +36,8 @@ service<http> OrderMgtService {
         json payload = {status:"Order Created.", orderId:orderId};
         http:OutResponse response = {};
         response.setJsonPayload(payload);
+
+        // Set 201 Created status code and 'Location' header to locate the newly added order.
         response.statusCode = 201;
         response.setHeader("Location", "http://localhost:9090/ordermgt/order/" + orderId);
 
@@ -53,16 +55,16 @@ service<http> OrderMgtService {
         json existingOrder;
         existingOrder, _ = (json)ordersMap[orderId];
 
-        http:OutResponse response = {};
-        if (existingOrder == null) {
+        // Updating existing order with new order attributes
+        if (existingOrder != null) {
+            existingOrder.Order.Name = newOrder.Order.Name;
+            existingOrder.Order.Description = newOrder.Order.Description;
+            ordersMap[orderId] = existingOrder;
+        } else {
             existingOrder = "Order : " + orderId + " cannot be found.";
         }
 
-        existingOrder.Order.Name = newOrder.Order.Name;
-        existingOrder.Order.Description = newOrder.Order.Description;
-
-        ordersMap[orderId] = existingOrder;
-
+        http:OutResponse response = {};
         response.setJsonPayload(existingOrder);
         _ = conn.respond(response);
     }

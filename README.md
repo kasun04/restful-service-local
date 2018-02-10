@@ -17,28 +17,79 @@ The following figure illustrates all required functionalities of the OrderMgt RE
 - **Delete Order** : An existing order can be deleted by sending a HTTP DELETE request to the specific URL (e.g. http://xyz.retail.com/order/<orderId>). 
 
 
-## <a name="what-we-ll-need"></a> Prerequisites
-
-Mandatory 
-- About 30 minutes
+## <a name="pre-req"></a> Prerequisites
+ 
 - JDK 1.8 or later
 - Ballerina Distribution (Install Instructions:  https://ballerinalang.org/docs/quick-tour/quick-tour/#install-ballerina)
-- A Text Editor or an IDE
+- A Text Editor or an IDE 
 
-Optional 
+Optional Requirements
 - Docker (Follow instructions in https://docs.docker.com/engine/installation/)
-- Ballerina Composer (optional). Refer instructions in https://ballerinalang.org/docs/quick-tour/quick-tour/#run-the-composer
-- Intellij IDEA (optional). https://github.com/ballerinalang/plugin-intellij/tree/master/getting-started
+- Ballerina IDE plugins. ( Intellij IDEA, VSCode, Atom)
 - Testerina (Refer: https://github.com/ballerinalang/testerina)
 - Container-support (Refer: https://github.com/ballerinalang/container-support)
 - Docerina (Refer: https://github.com/ballerinalang/docerina)
 
 ## <a name="developing-the-scenario"></a> Developing the Scenario
 
+We can model the OrderMgt RESTful service using Ballerina services and resources constructs. 
 
-Sample code
+1. You can started with a services 'OrderMgtService' which is the RESTful service that serves the order management request. OrderMgtService can have multiple resources and each resource is dedicated for a specific order management functionality.
+2. In the following Ballerina code segment you can find the implementation of the service and resource skeletons of 'OrderMgtService'. 
+For each order management operation, there is a dedicated resource and inside each resource we can implement the order management operation logic. 
+The service is annotated with the base parth for service and each resource has path and HTTP methods based validations, so that we can selectively route the messages through theses resources. 
 
-##### helloService.bal
+##### OrderMgtService.bal
+```ballerina
+package guide.restful_service;
+
+import ballerina.net.http;
+
+@http:configuration {basePath:"/ordermgt"}
+service<http> OrderMgtService {
+
+
+    @http:resourceConfig {
+        methods:["GET"],
+        path:"/order/{orderId}"
+    }
+    resource findOrder (http:Connection conn, http:InRequest req, string orderId) {
+        // Implementation 
+    }
+
+    @http:resourceConfig {
+        methods:["POST"],
+        path:"/order"
+    }
+    resource addOrder (http:Connection conn, http:InRequest req) {
+        // Implementation 
+    }
+
+    @http:resourceConfig {
+        methods:["PUT"],
+        path:"/order/{orderId}"
+    }
+    resource updateOrder (http:Connection conn, http:InRequest req, string orderId) {
+        // Implementation 
+    }
+
+    @http:resourceConfig {
+        methods:["DELETE"],
+        path:"/order/{orderId}"
+    }
+    resource cancelOrder (http:Connection conn, http:InRequest req, string orderId) {
+        // Implementation    
+    }
+}
+
+
+```
+
+
+3. You can implement the business logic of each resources as you perfer. For simplicity we have used an in-memory map to keep the order details. You can find the full source code of the OrderMgtService below. 
+
+
+##### OrderMgtService.bal
 ```ballerina
 package guide.restful_service;
 

@@ -45,7 +45,6 @@ restful-service
 ```
 2. You can add the content to your Ballerina service as shown below. In that code segment you can find the implementation of the service and resource skeletons of 'OrderMgtService'. 
 For each order management operation, there is a dedicated resource and inside each resource we can implement the order management operation logic. 
-The service is annotated with the base path for the service and each resource has path and HTTP methods based filtering, so that we can selectively route the messages through theses resources. 
 
 ##### OrderMgtService.bal
 ```ballerina

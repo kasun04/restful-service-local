@@ -7,7 +7,7 @@ service<http> OrderMgtService {
 
     // Order management is done using an in memory orders map.
     // Add some sample orders to the orderMap during the startup.
-    map ordersMap = populateSampleOrders();
+    map ordersMap = {};
 
     // Resource that handles the HTTP GET requests that are directed to a specific order using path "/orders/<orderID>"
     @http:resourceConfig {
@@ -108,17 +108,3 @@ service<http> OrderMgtService {
 
 }
 
-
-// Add some sample orders for testing purposes.
-function populateSampleOrders () (map orders) {
-    orders = {};
-    json order_1 = {"Order":{"ID":"123000", "Name":"ABC_1", "Description":"Sample order."}};
-    json order_2 = {"Order":{"ID":"123001", "Name":"ABC_2", "Description":"Sample order."}};
-    json order_3 = {"Order":{"ID":"123002", "Name":"ABC_3", "Description":"Sample order."}};
-    orders["123000"] = order_1;
-    orders["123001"] = order_2;
-    orders["123002"] = order_3;
-
-    println("Sample orders are added.");
-    return orders;
-}

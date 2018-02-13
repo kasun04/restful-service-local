@@ -3,7 +3,7 @@
 In this guide you will learn about building a comprehensive RESTful Web Service using Ballerina. 
 
 
-## <a name="understanding-the-scenario"></a> Understanding the Scenario  
+## <a name="what-you-build"></a> What you’ll build 
 To understanding how you can build a RESTful web service using Ballerina, let’s consider a real world use case of an order management scenario of an online retail application. 
 We can model the order management scenario as a RESTful web service; 'OrderMgtService',  which accepts different HTTP request for order management tasks such as order creation, retrieval, updating and deletion.
 The following figure illustrates all the required functionalities of the OrderMgt RESTful web service that we need to build. 
@@ -30,7 +30,7 @@ Optional Requirements
 - Container-support (Refer: https://github.com/ballerinalang/container-support)
 - Docerina (Refer: https://github.com/ballerinalang/docerina)
 
-## <a name="developing-the-scenario"></a> Developing the Scenario
+## <a name="developing-service"></a> Developing the RESTFul service 
 
 We can model the OrderMgt RESTful service using Ballerina services and resources constructs. 
 
@@ -205,44 +205,12 @@ function populateSampleOrders () (map orders) {
 
 4. With that we've completed the development of OrderMgtService. 
 
-## <a name="deploying-the-scenario"></a> Deploying the scenario
-
-Once you are done with the development, you can deploy the service using any of the methods that we listed below. 
-
-### <a name="deploying-on-locally"></a> Deploying Locally
-You can deploy the RESTful service that you developed above, in your local environment. You need to have the Ballerina installation in you local machine and simply point to the <ballerina>/bin/ballerina binary to execute all the following steps.  
-
-1. As the first step you can build a Ballerina executable archive (.balx) of the service that we developed above, using the following command. It points to the directory structure of the service that we developed above and it will create an executable binary out of that. 
-
-```
-$ballerina build guide/restful_service
-```
-
-2. Once the restful_service.balx is created, you can run that with the following command. 
-
-```
-ballerina run restful_service.balx 
-```
-
-3. The successful execution of the service should show us the following output. 
-```
-$ballerina run restful_service.balx 
-ballerina: deploying service(s) in 'restful_service.balx'
-Sample orders are added.
- 
-```
 
 
-### <a name="deploying-on-docker"></a> Deploying on Docker
+## <a name="testing"></a> Testing 
 (Work in progress) 
 
-### <a name="deploying-on-k8s"></a> Deploying on Kubernetes
-(Work in progress) 
-
-## <a name="testing-the-scenario"></a> Testing the Scenario 
-(Work in progress) 
-
-### <a name="invoking-the-service"></a> Invoking the Scenario
+### <a name="invoking"></a> Invoking the RESTful service 
 
 You can test the functionality of the OrderMgt RESTFul service by sending HTTP request for each order management operation. For example, we have used the curl commands to test each operation of OrderMgtService as follows. 
 
@@ -289,7 +257,42 @@ Output:
 "Order : 100500 removed."
 ```
 
-### <a name="invoking-the-service"></a> Writing Unit Tests 
+### <a name="unit-testing"></a> Writing Unit Tests 
 
 <Work in progress> 
 
+
+
+## <a name="deploying-the-scenario"></a> Deployment
+
+Once you are done with the development, you can deploy the service using any of the methods that we listed below. 
+
+### <a name="deploying-on-locally"></a> Deploying Locally
+You can deploy the RESTful service that you developed above, in your local environment. You need to have the Ballerina installation in you local machine and simply point to the <ballerina>/bin/ballerina binary to execute all the following steps.  
+
+1. As the first step you can build a Ballerina executable archive (.balx) of the service that we developed above, using the following command. It points to the directory structure of the service that we developed above and it will create an executable binary out of that. 
+
+```
+$ballerina build guide/restful_service
+```
+
+2. Once the restful_service.balx is created, you can run that with the following command. 
+
+```
+ballerina run restful_service.balx 
+```
+
+3. The successful execution of the service should show us the following output. 
+```
+$ballerina run restful_service.balx 
+ballerina: deploying service(s) in 'restful_service.balx'
+Sample orders are added.
+ 
+```
+
+
+### <a name="deploying-on-docker"></a> Deploying on Docker
+(Work in progress) 
+
+### <a name="deploying-on-k8s"></a> Deploying on Kubernetes
+(Work in progress) 

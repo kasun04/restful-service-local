@@ -56,7 +56,7 @@ import ballerina.net.http;
 service<http> OrderMgtService {
 
 
-     // Resource that handles the HTTP GET requests that are directed to a specific order using path "/orders/<orderID>"
+    @Description {value:"Resource that handles the HTTP GET requests that are directed to a specific order using path '/orders/<orderID>'"}
     @http:resourceConfig {
         methods:["GET"],
         path:"/order/{orderId}"
@@ -66,7 +66,7 @@ service<http> OrderMgtService {
     }
 
 
-    // Resource that handles the HTTP POST requests that are directed to the path "/orders" to create a new Order.
+    @Description {value:"Resource that handles the HTTP POST requests that are directed to the path '/orders' to create a new Order."}
     @http:resourceConfig {
         methods:["POST"],
         path:"/order"
@@ -75,7 +75,7 @@ service<http> OrderMgtService {
         // Implementation 
     }
 
-    // Resource that handles the HTTP PUT requests that are directed to the path "/orders" to update an existing Order.
+    @Description {value:"Resource that handles the HTTP PUT requests that are directed to the path '/orders' to update an existing Order."}
     @http:resourceConfig {
         methods:["PUT"],
         path:"/order/{orderId}"
@@ -84,7 +84,7 @@ service<http> OrderMgtService {
         // Implementation 
     }
 
-    // Resource that handles the HTTP DELETE requests that are directed to the path "/orders/<orderId>" to delete an existing Order.
+    @Description {value:"Resource that handles the HTTP DELETE requests that are directed to the path '/orders/<orderId>' to delete an existing Order."}
     @http:resourceConfig {
         methods:["DELETE"],
         path:"/order/{orderId}"
@@ -107,6 +107,8 @@ package guide.restful_service;
 
 import ballerina.net.http;
 
+
+@Description {value:"RESTful service."}
 @http:configuration {basePath:"/ordermgt"}
 service<http> OrderMgtService {
 
@@ -114,7 +116,7 @@ service<http> OrderMgtService {
     // Add some sample orders to the orderMap during the startup.
     map ordersMap = {};
 
-    // Resource that handles the HTTP GET requests that are directed to a specific order using path "/orders/<orderID>"
+    @Description {value:"Resource that handles the HTTP GET requests that are directed to a specific order using path '/orders/<orderID>'"}
     @http:resourceConfig {
         methods:["GET"],
         path:"/order/{orderId}"
@@ -136,8 +138,7 @@ service<http> OrderMgtService {
         _ = conn.respond(response);
     }
 
-
-    // Resource that handles the HTTP POST requests that are directed to the path "/orders" to create a new Order.
+    @Description {value:"Resource that handles the HTTP POST requests that are directed to the path '/orders' to create a new Order."}
     @http:resourceConfig {
         methods:["POST"],
         path:"/order"
@@ -161,8 +162,7 @@ service<http> OrderMgtService {
         _ = conn.respond(response);
     }
 
-
-    // Resource that handles the HTTP PUT requests that are directed to the path "/orders" to update an existing Order.
+    @Description {value:"Resource that handles the HTTP PUT requests that are directed to the path '/orders' to update an existing Order."}
     @http:resourceConfig {
         methods:["PUT"],
         path:"/order/{orderId}"
@@ -193,7 +193,7 @@ service<http> OrderMgtService {
     }
 
 
-    // Resource that handles the HTTP DELETE requests that are directed to the path "/orders/<orderId>" to delete an existing Order.
+    @Description {value:"Resource that handles the HTTP DELETE requests that are directed to the path '/orders/<orderId>' to delete an existing Order."}
     @http:resourceConfig {
         methods:["DELETE"],
         path:"/order/{orderId}"
